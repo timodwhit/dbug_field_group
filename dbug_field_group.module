@@ -29,6 +29,8 @@ function dbug_field_group_field_group_pre_render(&$element, $group, &$form) {
   switch ($group->format_type) {
     // Normal or collapsible div.
     case 'dbug_field_group_example':
+      $classes = isset($group->format_settings['instance_settings']['classes']) ? $group->format_settings['instance_settings']['classes'] : '';
+
       $add = array(
         '#type' => 'markup',
         '#weight' => $group->weight,
