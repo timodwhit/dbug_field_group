@@ -1,0 +1,43 @@
+<?php
+/**
+ * @file
+ * Base module file for DBUG Field Group.
+ */
+
+/**
+ * Implements hook_field_group_formatter_info().
+ */
+function dbug_field_group_field_group_formatter_info() {
+  return array(
+    'display' => array(
+      'dbug_field_group_example' => array(
+        'label' => t('DBUG Field Group Example'),
+        'description' => t('This fieldgroup is just an example.'),
+        'format_types' => array('cont_wrap'),
+        'instance_settings' => array('classes' => ''),
+        'default_formatter' => 'cont_wrap',
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_group_pre_render().
+ */
+function dbug_field_group_field_group_pre_render(&$element, $group, &$form) {
+
+  switch ($group->format_type) {
+    // Normal or collapsible div.
+    case 'dbug_field_group_example':
+      $add = array(
+        '#type' => 'markup',
+        '#weight' => $group->weight,
+        '#prefix' => '<div class="wrapper ' . $classes . '"><div class="container">',
+        '#suffix' => '</div></div>'
+      );
+
+      $element += $add;
+
+      break;
+  }
+}

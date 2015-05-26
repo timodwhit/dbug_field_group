@@ -1,0 +1,5 @@
+name = Drupal Boulder User Group Field Group Example
+description = Provides an example field group for awesomeness.
+core = 7.x
+package = Fields
+dependencies[] = field_group
