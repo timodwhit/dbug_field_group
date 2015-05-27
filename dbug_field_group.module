@@ -35,7 +35,7 @@ function dbug_field_group_field_group_pre_render(&$element, $group, &$form) {
         '#type' => 'markup',
         '#weight' => $group->weight,
         '#prefix' => '<div class="wrapper ' . $classes . '"><div class="container">',
-        '#suffix' => '</div></div>'
+        '#suffix' => '</div></div>',
       );
 
       $element += $add;
